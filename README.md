@@ -11,7 +11,9 @@ Create -> person investor with the following attr:
 - location
 
 Read -> show list of investors
+
 Update -> update specific investor
+
 Delete -> delete specific investor
 
 Built using:
