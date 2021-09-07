@@ -1,6 +1,6 @@
 # ReactReduxCRUDApp
 
-### `NOTE: App is inside /crud-app folder.`
+#### `NOTE: App is inside /crud-app folder.`
 
 ## A simple CRUD Application using React-Redux
 
