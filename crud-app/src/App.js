@@ -1,6 +1,6 @@
 import './App.css';
 import AddInvestorForm from './components/AddInvestorForm';
-import InvestorsTable from './components/InvestorsTable';
+import InvestorsList from './components/InvestorsList';
 import Header from './components/Header';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Header />
       <AddInvestorForm />
-      <InvestorsTable />
+      <InvestorsList />
     </div>
   );
 }
