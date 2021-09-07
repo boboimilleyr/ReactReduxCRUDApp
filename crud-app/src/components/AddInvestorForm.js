@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addInvestor } from '../redux/investorsSlice';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const AddInvestorForm = () => {
     const [name, setName] = useState();
@@ -25,22 +27,26 @@ const AddInvestorForm = () => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
-                type="text"
-                placeholder="Enter Investor's Name"
+        <form onSubmit={onSubmit} className="form">
+            <TextField
+                label="Name"
+                variant="outlined"
+                size="small"
                 value={name}
                 onChange={handleNameChange}
                 required
-            ></input>
-            <input
-                type="text"
-                placeholder="Enter Investor's Location"
+                className="input"
+            />
+            <TextField
+                label="Location"
+                variant="outlined"
+                size="small"
                 value={location}
                 onChange={handleLocationChange}
                 required
-            ></input>
-            <button type="submit">Add Investor</button>
+                className="input"
+            />
+            <Button className="btn" type="submit" variant="contained" color="primary">Add Investor</Button>
         </form>
     );
 }

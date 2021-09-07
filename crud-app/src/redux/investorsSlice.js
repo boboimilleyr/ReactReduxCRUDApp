@@ -10,7 +10,7 @@ export const investorsSlice = createSlice({
     reducers: {
         addInvestor: ( state, action) => {
             const newInvestor = {
-                id: state.length + 1,
+                id: state.length ? (state[state.length-1].id + 1) : 1,
                 name: action.payload.name,
                 location: action.payload.location,
                 edit: false

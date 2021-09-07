@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editInvestor, updateInvestor, deleteInvestor } from '../redux/investorsSlice';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
 
 const InvestorItem = ({ id, name, location, edit }) => {
     const [nameEdit, setName] = useState(name);
@@ -30,23 +34,33 @@ const InvestorItem = ({ id, name, location, edit }) => {
 
     if(edit){
         return (
-            <form onSubmit={onUpdate} style={{display: "flex"}}>
-                <div>{id}</div>
-                <input type="text" value={nameEdit} onChange={handleNameChange} required></input>
-                <input type="text" value={locationEdit} onChange={handleLocationChange} required></input>
-                <button type="submit">UPDATE</button>
-                <button disabled={true}>DELETE</button>
+            <form onSubmit={onUpdate} style={{display: "flex", justifyContent: "center"}}>
+                <Grid container direction="row" justifyContent="space-evenly" alignItems="center" className="list-item-container">
+                    <Grid item xs={1} className="list-item-text">{id}</Grid>
+                    <Grid item xs={4} className="list-item-text">
+                        <TextField value={nameEdit} onChange={handleNameChange} required></TextField>
+                    </Grid>
+                    <Grid item xs={4} className="list-item-text">
+                        <TextField value={locationEdit} onChange={handleLocationChange} required></TextField>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button type="submit" variant="outlined" color="secondary">SAVE</Button>
+                        <Button variant="contained" disabled>DELETE</Button>
+                    </Grid>
+                </Grid>
             </form>
         );
     }
     return (
-        <li style={{display: "flex"}}>
-            <div>{id}</div>
-            <div>{name}</div>
-            <div>{location}</div>
-            <button onClick={onEdit}>EDIT</button>
-            <button onClick={onDelete}>DELETE</button>
-        </li>
+        <Grid container direction="row" justifyContent="space-evenly" alignItems="center" className="list-item-container">
+            <Grid item xs={1} className="list-item-text">{id}</Grid>
+            <Grid item xs={4} className="list-item-text">{name}</Grid>
+            <Grid item xs={4} className="list-item-text">{location}</Grid>
+            <Grid item xs={3}>
+                    <Button onClick={onEdit} variant="contained" color="secondary">UPDATE</Button>
+                    <Button onClick={onDelete} variant="contained">DELETE</Button>
+            </Grid>
+        </Grid>
     );
 };
 
